@@ -1,7 +1,7 @@
 [
   {
     "type": "post",
-    "url": "/admin/change_password",
+    "url": "/admin/change-password",
     "title": "Change Password",
     "header": {
       "fields": {
@@ -152,7 +152,7 @@
   },
   {
     "type": "post",
-    "url": "/auth/check_account",
+    "url": "/auth/check-account",
     "title": "Check Account",
     "header": {
       "fields": {
@@ -215,7 +215,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK \n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 201 Created\n{\n  \"message\": \"Create Account\"\n}\n\n[When account is exists with Email, go to Login password screen]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, Amit\",\n  \"email\": \"kaushikabhi999@gmail.com\",\n}",
+          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK \n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is exists with Email, go to Login password screen]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, Amit\",\n  \"email\": \"kaushikabhi999@gmail.com\",\n}",
           "type": "json"
         }
       ]
@@ -224,7 +224,7 @@
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "\nHTTP/1.1 400 Bad Request\n{\n  \"message\": \"Email or Phone number required\"\n}",
+          "content": "\nHTTP/1.1 400 Bad Request\n{\n  \"message\": \"Email or Phone number required\"\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 404 Created\n{\n  \"message\": \"Create Account\"\n}",
           "type": "json"
         }
       ]
@@ -406,6 +406,34 @@
             "optional": false,
             "field": "dob",
             "description": "<p>Date of birth in DD-MM-YYYY format.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "avatar",
+            "description": "<p>Avatar from Social Platform.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "social_id",
+            "description": "<p>Social Unique Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "social_token",
+            "description": "<p>Social Platform Token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "login_type",
+            "description": "<p>Login type can be only <code>FACEBOOK</code> | <code>GOOGLE</code> | <code>APPLE</code> | <code>PHONE</code> | <code>EMAIL</code></p>"
           }
         ]
       }
@@ -433,7 +461,7 @@
   },
   {
     "type": "post",
-    "url": "/auth/resend_otp",
+    "url": "/auth/resend-otp",
     "title": "Resend OTP",
     "header": {
       "fields": {
@@ -508,7 +536,96 @@
   },
   {
     "type": "post",
-    "url": "/auth/verify_otp",
+    "url": "/auth/social-login",
+    "title": "Social Login",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "SocialLogin",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "social_id",
+            "description": "<p>Social Unique Id.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "social_token",
+            "description": "<p>Social Platform Token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email address.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "login_type",
+            "description": "<p>Login type can be only <code>FACEBOOK</code> | <code>GOOGLE</code> | <code>APPLE</code></p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"kaushikabhi999@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Invalid credentials\"\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 404 Created\n{\n  \"message\": \"Create Account\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/AuthController.ts",
+    "groupTitle": "Auth"
+  },
+  {
+    "type": "post",
+    "url": "/auth/verify-otp",
     "title": "Verify OTP",
     "header": {
       "fields": {
