@@ -151,6 +151,54 @@ define({ "api": [
     "groupTitle": "Admin"
   },
   {
+    "type": "get",
+    "url": "/admin/users-list?page=1&search=xyz",
+    "title": "Users List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............lREODosHjzx95uM-jA.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "UsersList",
+    "group": "Admin",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"users\":[\n    {\n      \"id\":1,\n      \"uid\":\"94440eb7-05e4-47b2-b8df-f6a605995b7b\",\n      \"first_name\":\"Amit\",\n      \"last_name\":\"kaushik\",\n      \"dob\":\"12-21-1993\",\n      \"avatar\":null,\n      \"email\":\"kaushikabhi999@gmail.com\",\n      \"country_code\":\"+91\",\n      \"phone_number\":\"9034138099\",\n      \"username\":\"919034138099\",\n      \"login_type\":\"EMAIL\"\n      \"device_type\":null,\n      \"created_at\":\"2021-05-14T11:31:35.000Z\",\n      \"updated_at\":\"2021-05-14T11:31:35.000Z\",\n    }\n  ],\n  \"totalNumber\":2,\n  \"perPage\":10,\n  \"currentPage\":1,\n  \"firstPage\":1,\n  \"isEmpty\":false,\n  \"totalPages\":1,\n  \"lastPage\":1,\n  \"hasMorePages\":false,\n  \"hasPages\":false\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 400 Bad Request\n{\n  \"message\": \"Something went wrong\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/AdminController.ts",
+    "groupTitle": "Admin"
+  },
+  {
     "type": "post",
     "url": "/auth/check-account",
     "title": "Check Account",
