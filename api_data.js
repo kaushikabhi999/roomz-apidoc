@@ -181,7 +181,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"users\":[\n    {\n      \"id\":1,\n      \"uid\":\"94440eb7-05e4-47b2-b8df-f6a605995b7b\",\n      \"first_name\":\"Amit\",\n      \"last_name\":\"kaushik\",\n      \"dob\":\"12-21-1993\",\n      \"avatar\":null,\n      \"email\":\"kaushikabhi999@gmail.com\",\n      \"country_code\":\"+91\",\n      \"phone_number\":\"9034138099\",\n      \"username\":\"919034138099\",\n      \"login_type\":\"EMAIL\"\n      \"device_type\":null,\n      \"created_at\":\"2021-05-14T11:31:35.000Z\",\n      \"updated_at\":\"2021-05-14T11:31:35.000Z\",\n    }\n  ],\n  \"totalNumber\":2,\n  \"perPage\":10,\n  \"currentPage\":1,\n  \"firstPage\":1,\n  \"isEmpty\":false,\n  \"totalPages\":1,\n  \"lastPage\":1,\n  \"hasMorePages\":false,\n  \"hasPages\":false\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"users\":[\n    {\n      \"id\":1,\n      \"uid\":\"94440eb7-05e4-47b2-b8df-f6a605995b7b\",\n      \"first_name\":\"Amit\",\n      \"last_name\":\"kaushik\",\n      \"dob\":\"12-21-1993\",\n      \"avatar\":null,\n      \"email\":\"john.doe@gmail.com\",\n      \"country_code\":\"+91\",\n      \"phone_number\":\"9034138099\",\n      \"username\":\"919034138099\",\n      \"login_type\":\"EMAIL\"\n      \"device_type\":null,\n      \"created_at\":\"2021-05-14T11:31:35.000Z\",\n      \"updated_at\":\"2021-05-14T11:31:35.000Z\",\n    }\n  ],\n  \"totalNumber\":2,\n  \"perPage\":10,\n  \"currentPage\":1,\n  \"firstPage\":1,\n  \"isEmpty\":false,\n  \"totalPages\":1,\n  \"lastPage\":1,\n  \"hasMorePages\":false,\n  \"hasPages\":false\n}",
           "type": "json"
         }
       ]
@@ -270,7 +270,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK \n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is exists with Email, go to Login password screen]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, Amit\",\n  \"email\": \"kaushikabhi999@gmail.com\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
+          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK \n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"GOOGLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
           "type": "json"
         }
       ]
@@ -359,7 +359,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"kaushikabhi999@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}",
           "type": "json"
         }
       ]
@@ -497,7 +497,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Registerted successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"kaushikabhi999@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Registerted successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}",
           "type": "json"
         }
       ]
@@ -661,7 +661,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"kaushikabhi999@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"APPLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
           "type": "json"
         }
       ]
