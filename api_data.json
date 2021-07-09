@@ -270,7 +270,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK \n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"GOOGLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
+          "content": "[When account is NOT exists with phone number, An OTP will be sent]\nHTTP/1.1 200 OK\n{\n    \"otpSid\": \"VE44b2561601a6e9014bc7bd7b097eb5dd\",\n    \"message\": \"Otp sent on your phone number\"\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED\n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"GOOGLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
           "type": "json"
         }
       ]
@@ -497,7 +497,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Registerted successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"GOOGLE\",\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Registerted successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED\n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"GOOGLE\",\n}",
           "type": "json"
         }
       ]
@@ -661,7 +661,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED \n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"APPLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"message\": \"Login successfully\",\n  \"data\": {\n      \"user\": {\n          \"email\": \"john.doe@gmail.com\",\n          \"uid\": \"d47f292c-7b63-47bc-8485-3aef1b454551\",\n          \"first_name\": \"Amit\",\n          \"last_name\": \"Kaushik\",\n          \"dob\": \"12-21-1993\",\n          \"country_code\": \"+91\",\n          \"phone_number\": \"9034138099\",\n          \"username\": \"919034138099\",\n          \"created_at\": \"2021-05-15T10:50:08.257+00:00\",\n          \"updated_at\": \"2021-05-15T10:50:08.289+00:00\",\n          \"id\": 1\n      },\n      \"accessToken\": {\n          \"type\": \"bearer\",\n          \"token\": \"MQ.zSbTFVKw2PI1C14nj-dqR3i1_2z52k1ONKrXYWvoOkdE9WxTol4M-SEVmYwq\"\n      }\n  }\n}\n\n[When account is exists, go to Login password screen with login_type]\nHTTP/1.1 202 ACCEPTED\n{\n  \"message\": \"Welcome back, John\",\n  \"email\": \"john.doe@gmail.com\",\n  \"login_type\": \"APPLE\",\n}\n\n[When account is NOT exists with Email, go to Sign up screen]\nHTTP/1.1 209 Created\n{\n  \"message\": \"Create Account\"\n}",
           "type": "json"
         }
       ]
@@ -759,5 +759,129 @@
     },
     "filename": "app/Controllers/Http/AuthController.ts",
     "groupTitle": "Auth"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/bed-types",
+    "title": "Bed Types",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "BedTypes",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n {\n     \"uid\": \"be4805d2-5782-4a8c-af27-9fc70da0dd65\",\n     \"bed_type\": \"double\"\n },\n {\n     \"uid\": \"c1cfaaef-db8e-4928-8d86-1f25999fb5d6\",\n     \"bed_type\": \"queen\"\n },\n {\n     \"uid\": \"c82267e0-5a11-49b2-9592-e48c5f8f4fbc\",\n     \"bed_type\": \"single\"\n },\n {\n     \"uid\": \"878bd05f-194f-4e84-b8f0-e2953f9f8517\",\n     \"bed_type\": \"sofa bed\"\n }\n ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/property-types",
+    "title": "Property Types",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "PropertyTypes",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n   {\n  \"data\": [\n    {\n      \"uid\": \"af1ebb9a-80a1-4573-8ba5-98d6a81f3210\",\n      \"property_type\": \"Villa\"\n    },\n    {\n      \"uid\": \"43d21645-e458-4eed-8db5-d08cde2bdfcd\",\n      \"property_type\": \"Apartment\"\n    },\n    {\n      \"uid\": \"c12c0a8f-c07f-46fc-804f-ab198b4e7304\",\n      \"property_type\": \"Farm House\"\n    },\n    {\n      \"uid\": \"bb178ee0-d880-4fda-881d-802c0aaa0f22\",\n      \"property_type\": \"Istiraha\"\n    },\n    {\n      \"uid\": \"55133720-6407-4e1a-9fa7-c278e1da85c1\",\n      \"property_type\": \"Camp\"\n    },\n    {\n      \"uid\": \"2a2391b9-a595-4853-a538-2f6cc5c46263\",\n      \"property_type\": \"Heritage House\"\n    }\n ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
   }
 ]
