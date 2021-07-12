@@ -805,7 +805,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n {\n     \"uid\": \"be4805d2-5782-4a8c-af27-9fc70da0dd65\",\n     \"bed_type\": \"double\"\n },\n {\n     \"uid\": \"c1cfaaef-db8e-4928-8d86-1f25999fb5d6\",\n     \"bed_type\": \"queen\"\n },\n {\n     \"uid\": \"c82267e0-5a11-49b2-9592-e48c5f8f4fbc\",\n     \"bed_type\": \"single\"\n },\n {\n     \"uid\": \"878bd05f-194f-4e84-b8f0-e2953f9f8517\",\n     \"bed_type\": \"sofa bed\"\n }\n ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": [\n {\n      \"id\": 1,\n     \"uid\": \"be4805d2-5782-4a8c-af27-9fc70da0dd65\",\n     \"bed_type\": \"double\"\n },\n {\n      \"id\": 2,\n     \"uid\": \"c1cfaaef-db8e-4928-8d86-1f25999fb5d6\",\n     \"bed_type\": \"queen\"\n },\n {\n     \"id\": 3,\n     \"uid\": \"c82267e0-5a11-49b2-9592-e48c5f8f4fbc\",\n     \"bed_type\": \"single\"\n },\n {\n     \"id\": 4,\n     \"uid\": \"878bd05f-194f-4e84-b8f0-e2953f9f8517\",\n     \"bed_type\": \"sofa bed\"\n }\n ]\n}",
           "type": "json"
         }
       ]
@@ -867,7 +867,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n   {\n  \"data\": [\n    {\n      \"uid\": \"af1ebb9a-80a1-4573-8ba5-98d6a81f3210\",\n      \"property_type\": \"Villa\"\n    },\n    {\n      \"uid\": \"43d21645-e458-4eed-8db5-d08cde2bdfcd\",\n      \"property_type\": \"Apartment\"\n    },\n    {\n      \"uid\": \"c12c0a8f-c07f-46fc-804f-ab198b4e7304\",\n      \"property_type\": \"Farm House\"\n    },\n    {\n      \"uid\": \"bb178ee0-d880-4fda-881d-802c0aaa0f22\",\n      \"property_type\": \"Istiraha\"\n    },\n    {\n      \"uid\": \"55133720-6407-4e1a-9fa7-c278e1da85c1\",\n      \"property_type\": \"Camp\"\n    },\n    {\n      \"uid\": \"2a2391b9-a595-4853-a538-2f6cc5c46263\",\n      \"property_type\": \"Heritage House\"\n    }\n ]\n}",
+          "content": "   HTTP/1.1 200 OK\n   {\n  \"data\": [\n    {\n      \"id\": 1,\n      \"uid\": \"af1ebb9a-80a1-4573-8ba5-98d6a81f3210\",\n      \"property_type\": \"Villa\"\n    },\n    {\n       \"id\":2\n      \"uid\": \"43d21645-e458-4eed-8db5-d08cde2bdfcd\",\n      \"property_type\": \"Apartment\"\n    },\n    {\n     \"id\":3,\n      \"uid\": \"c12c0a8f-c07f-46fc-804f-ab198b4e7304\",\n      \"property_type\": \"Farm House\"\n    },\n    {\n       \"id\":4,\n      \"uid\": \"bb178ee0-d880-4fda-881d-802c0aaa0f22\",\n      \"property_type\": \"Istiraha\"\n    },\n    {\n       \"id\": 5,\n      \"uid\": \"55133720-6407-4e1a-9fa7-c278e1da85c1\",\n      \"property_type\": \"Camp\"\n    },\n    {\n       \"id\":6\n      \"uid\": \"2a2391b9-a595-4853-a538-2f6cc5c46263\",\n      \"property_type\": \"Heritage House\"\n    }\n ]\n}",
           "type": "json"
         }
       ]
