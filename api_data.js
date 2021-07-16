@@ -762,6 +762,68 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/user/hosting/amenities",
+    "title": "Amenity List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "Amenities",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n    {\n   \"data\": [\n    {\n      \"id\": 1,\n       \"uid\": \"f18580fe-28b0-4954-8d07-7d2f0c40d57f\",\n       \"name\": \"Wifi\",\n       \"type\": \"normal\",\n       \"description\": null\n   },\n   {\n       \"id\": 17,\n       \"uid\": \"696032f1-b749-4629-a8fe-cde62bde6b4f\",\n       \"name\": \"Smoke Alarm\",\n       \"type\": \"safety\",\n       \"description\": \"Check your local lows which may require a working smoke *detector in every room\"\n   },\n   {\n       \"id\": 18,\n       \"uid\": \"8582c261-a945-444e-bf35-38877ec72d11\",\n       \"name\": \"Carbon monoxide Alarm\",\n       \"type\": \"safety\",\n       \"description\": \"Check your local lows which may require a working carbon *monoxide detector in every room\"\n  },\n   {\n       \"id\": 19,\n       \"uid\": \"af617c01-8a12-48f5-8e86-1038a630f58a\",\n       \"name\": \"Lock on Bedroom door\",\n       \"type\": \"safety\",\n       \"description\": \"Private room can be locked for safety and privacy\"\n   },\n   {\n       \"id\": 20,\n       \"uid\": \"20963d0b-8701-44bf-98c5-349544a76034\",\n       \"name\": \"Kitchen\",\n       \"type\": \"space\",\n        \"description\": \"Space where guests can cook their own meal\"\n   },\n...\n...\n...\n  ]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "get",
     "url": "/user/hosting/bed-types",
     "title": "Bed Types",
     "header": {
