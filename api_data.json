@@ -945,5 +945,67 @@
     },
     "filename": "app/Controllers/Http/User/HostingController.ts",
     "groupTitle": "Hosting"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/home-details",
+    "title": "Home Details",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "home-details",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n  {\n    \"data\": [\n  {\n       \"id\": 1,\n       \"uid\": \"954e2ffe-ab0a-4b19-bc87-99eb058228a8\",\n       \"name\": \"Must Climb Stairs\",\n       \"description\": \"Describe the stairs(for example, how many flights)\"\n   },\n   {\n       \"id\": 2,\n       \"uid\": \"019af93c-e1d6-420d-9c4d-b4246ee4b7ff\",\n       \"name\": \"Potential for noise\",\n       \"description\": null\n   },\n   {\n       \"id\": 3,\n       \"uid\": \"37e68fe7-3fc7-472c-99c9-5428f66159d5\",\n       \"name\": \"Pet(s) live on property\",\n       \"description\": null\n   },\n   {\n       \"id\": 4,\n       \"uid\": \"bcbaf4ce-6839-4b66-b44b-d35293106e8f\",\n       \"name\": \"No parking on property\",\n       \"description\": null\n   },\n.\n.\n.\n    ]\n  }\n    \n   \n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
   }
 ]
