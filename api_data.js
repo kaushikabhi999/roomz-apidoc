@@ -1007,5 +1007,554 @@ define({ "api": [
     },
     "filename": "app/Controllers/Http/User/HostingController.ts",
     "groupTitle": "Hosting"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/home-rules",
+    "title": "Home Rules",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "home-rules",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n {\n   \"data\": [\n {\n      \"id\": 1,\n      \"uid\": \"b2607d2a-2b10-4504-8872-f9b0ab1a986e\",\n      \"rule\": \"Suitable for children (2-12)\"\n  },\n  {\n      \"id\": 2,\n      \"uid\": \"f7e7a7c0-dac8-4c18-a908-e0677d1d8756\",\n      \"rule\": \"Suitable for infants (under 2)\"\n  },\n  {\n      \"id\": 3,\n      \"uid\": \"52e7952a-afea-4789-924b-43c883016dff\",\n      \"rule\": \"Suitable for pets\"\n  },\n  {\n      \"id\": 4,\n      \"uid\": \"26e24756-e13d-47eb-a6bb-f6f0470c428d\",\n      \"rule\": \"Smoking allowed\"\n  },\n  {\n      \"id\": 5,\n      \"uid\": \"a14a9afc-140b-4ea0-971f-5dc8d3fd54db\",\n      \"rule\": \"Events allowed\"\n  }\n   ]\n }\n   \n  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "put",
+    "url": "/user/hosting/list-property/address/:id",
+    "title": "Add Address",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "address",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property unique ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": "<p>property located in country</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "street",
+            "description": "<p>house name/number street/road</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "address_optional",
+            "description": "<p>Flat, Suite etc.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>Name of City.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "zip_code",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"country\": \"India\",\n   \"city\": \"Noida\",\n   \"street\": \"Noida Sector 63\",\n   \"state\": \"UP\",\n   \"zip_code\": \"300221\",\n   \"address_optional\": \"H Block\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property address updated\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"type\": {\n               \"id\": 1,\n               \"uid\": \"27ce8bdf-1b6c-495b-aca0-a057c0848580\",\n               \"property_type\": \"Villa\",\n           },\n           \"beds\": [\n               {\n                   \"bed_id\": 1,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"Common Space\",\n                   \"is_common_space\": 1,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2\n               }\n           ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n \"message\": \"validation Failed\",\n \"error\": {\n     \"state\": [\n         \"minLength validation failed\"\n     ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "put",
+    "url": "/user/hosting/list-property/location/:id",
+    "title": "Add Amenities",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "amenities",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property unique ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number[]",
+            "optional": false,
+            "field": "amenities",
+            "description": "<p>Array of Ids of amenities</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n     \"amenities\": [1,2,3,5]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property amenities added\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"longitude\": 10.24,\n           \"latitude\": 20.134,\n           \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n           \"type\": {\n               \"id\": 1,\n               \"uid\": \"27ce8bdf-1b6c-495b-aca0-a057c0848580\",\n               \"property_type\": \"Villa\",\n           },\n           \"beds\": [\n               {\n                   \"bed_id\": 1,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"Common Space\",\n                   \"is_common_space\": 1,\n                   \"count\": 2,\n               },\n               .\n               .\n               .\n           ],\n         \"amenities\": [\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 1,\n               \"id\": 9\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 2,\n               \"id\": 10\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 3,\n               \"id\": 11\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 5,\n               \"id\": 12\n           }\n          .\n          .\n          .\n       ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n \"message\": \"validation Failed\",\n \"error\": {\n     \"amenities\": [\n         \"number validation failed\"\n     ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "put",
+    "url": "/user/hosting/list-property/beds/:id",
+    "title": "Add Beds",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "beds",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property unique ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "no_of_guests",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "no_of_bathrooms",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "no_of_bedrooms",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "beds",
+            "description": "<p><code>Array of Beds</code>.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n\"no_of_guests\": 2,\n \"no_of_bedrooms\": 1,\n \"no_of_bathrooms\": 2,\n \"beds\": [\n     {\n         \"bed_id\": 1,\n         \"bedroom_name\": \"Common Space\",\n         \"count\": 2,\n         \"is_common_space\": true\n     },\n      {\n         \"bed_id\": 2,\n         \"bedroom_name\": \"BedRoom 1\",\n         \"count\": 2,\n         \"is_common_space\": false\n     },\n     {\n         \"bed_id\": 2,\n         \"bedroom_name\": \"BedRoom 1\",\n         \"count\": 3,\n         \"is_common_space\": false\n     }\n     .\n     .\n     .\n ]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property type added\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"type\": {\n               \"id\": 1,\n               \"uid\": \"27ce8bdf-1b6c-495b-aca0-a057c0848580\",\n               \"property_type\": \"Villa\",\n           },\n           \"beds\": [\n               {\n                   \"bed_id\": 1,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"Common Space\",\n                   \"is_common_space\": 1,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2\n               }\n           ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n   HTTP/1.1 400 Bad Request\n   {\n  \"message\": \"validation Failed\",\n  \"error\": {\n      \"no_of_bedrooms\": [\n          \"number validation failed\"\n      ],\n      \"beds.0.bedroom_name\": [\n          \"required validation failed\"\n      ],\n      \"beds.2.is_common_space\": [\n          \"boolean validation failed\"\n      ]\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "put",
+    "url": "/user/hosting/list-property/amenities/:id",
+    "title": "Add Location",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "location",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property unique ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "longitude",
+            "description": "<p>Ex 10.24</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "latitude",
+            "description": "<p>Ex 20.135</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "location",
+            "description": "<p>A-121, Sec-63 Noida, Utter Pradesh 201301.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"longitude\": 10.24,\n   \"latitude\": 20.134,\n   \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property address updated\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"longitude\": 10.24,\n           \"latitude\": 20.134,\n           \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n           \"type\": {\n               \"id\": 1,\n               \"uid\": \"27ce8bdf-1b6c-495b-aca0-a057c0848580\",\n               \"property_type\": \"Villa\",\n           },\n           \"beds\": [\n               {\n                   \"bed_id\": 1,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"Common Space\",\n                   \"is_common_space\": 1,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2\n               }\n           ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n \"message\": \"validation Failed\",\n \"error\": {\n     \"location\": [\n         \"minLength validation failed\"\n     ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "post",
+    "url": "/user/hosting/list-property/type",
+    "title": "Property Type",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "property-type",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "property_type",
+            "description": "<p>property_type Property Type Id `</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": true,
+            "field": "is_beach_house",
+            "description": "<p>required if property_type 'villa' or 'apartment'.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_dedicated_guest_space",
+            "description": "<p>true or false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_business_hosting",
+            "description": "<p>true of false`.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 201 Created\n   \n   {\n    \"message\": \"Property type added\",\n     \"data\": {\n     \"uid\": \"20586a21-af79-447a-8df4-8b2cce091c72\",\n     \"property_type\": 1,\n     \"is_beach_house\": false,\n     \"is_dedicated_guest_space\": true,\n     \"is_business_hosting\": true,\n     \"created_at\": \"2021-07-26T12:58:55.169+05:30\",\n     \"updated_at\": \"2021-07-26T12:58:55.169+05:30\",\n     \"id\": 1\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n    \"message\": \"validation Failed\",\n    \"error\": {\n    \"is_beach_house\": [\n       \"required validation failed\"\n   ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
   }
 ] });
