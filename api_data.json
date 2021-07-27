@@ -1189,7 +1189,7 @@
   },
   {
     "type": "put",
-    "url": "/user/hosting/list-property/location/:id",
+    "url": "/user/hosting/list-property/amenities/:id",
     "title": "Add Amenities",
     "header": {
       "fields": {
@@ -1374,7 +1374,131 @@
   },
   {
     "type": "put",
-    "url": "/user/hosting/list-property/amenities/:id",
+    "url": "/user/hosting/list-property/guest-requirements/:id",
+    "title": "Guest Requirements",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "guest-requirements",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property unique ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_email_confirmed",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_phone_confirmed",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_payment_information",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_trip_purpose",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_no_negative_reviews",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_id_submitted",
+            "description": "<p>guest submitted their id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "is_agree_hr",
+            "description": "<p>guests agree for home rules (hr)</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"is_email_confirmed\": true,\n  \"is_phone_confirmed\": true,\n  \"is_payment_information\": true,\n  \"is_agree_hr\": true,\n  \"is_trip_purpose\": true,\n  \"is_id_submitted\": true,\n  \"is_no_negative_reviews\": true\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property address updated\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"longitude\": 10.24,\n           \"latitude\": 20.134,\n           \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n           \"is_email_confirmed\": 1,\n           \"is_phone_confirmed\": 1,\n           \"is_agree_hr\": 1,\n           \"is_payment_information\": 1,\n           \"is_trip_purpose\": 1,\n           \"is_id_submitted\": 1,\n           \"is_no_negative_reviews\": 1,\n           \"type\": {\n               \"id\": 1,\n               \"uid\": \"27ce8bdf-1b6c-495b-aca0-a057c0848580\",\n               \"property_type\": \"Villa\",\n           },\n           \"beds\": [\n               {\n                   \"bed_id\": 1,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"Common Space\",\n                   \"is_common_space\": 1,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2,\n               },\n               {\n                   \"bed_id\": 2,\n                   \"property_id\": 2,\n                   \"bedroom_name\": \"BedRoom 1\",\n                   \"is_common_space\": 0,\n                   \"count\": 2\n               }\n           ],\n       \"amenities\": [\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 1,\n               \"id\": 9\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 2,\n               \"id\": 10\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 3,\n               \"id\": 11\n           },\n           {\n               \"property_id\": 2,\n               \"amenity_id\": 5,\n               \"id\": 12\n           }\n          .\n          .\n          .\n       ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n \"message\": \"validation Failed\",\n \"error\": {\n     \"location\": [\n         \"minLength validation failed\"\n     ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "put",
+    "url": "/user/hosting/list-property/location/:id",
     "title": "Add Location",
     "header": {
       "fields": {
