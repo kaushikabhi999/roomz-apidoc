@@ -1071,6 +1071,145 @@ define({ "api": [
     "groupTitle": "Hosting"
   },
   {
+    "type": "Post",
+    "url": "/user/hosting/remove-images/:id",
+    "title": "Remove Images",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "remove-images",
+    "group": "Hosting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>array of image urls</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example ",
+          "content": "{\n  \"images\": [\n      {\n          \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing%20your%20email/08-Recognizing%20your%20email.png\"\n      }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n{\n     \"message\": \"Images deleted\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "Post",
+    "url": "/user/hosting/upload-images/:id",
+    "title": "Upload Images",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "upload-images",
+    "group": "Hosting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Files",
+            "optional": false,
+            "field": "images",
+            "description": "<p>Array of images, request body formdata</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n\n{\n          \"data\": [\n              {\n                  \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email/08-Recognizing your email.png\"\n              },\n              {\n                  \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email - Social/08-Recognizing your email - Social.png\"\n              }\n              .\n              .\n              .\n              .\n          ]\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
     "type": "put",
     "url": "/user/hosting/list-property/address/:id",
     "title": "Add Address",
@@ -2287,6 +2426,168 @@ define({ "api": [
   },
   {
     "type": "put",
+    "url": "/user/hosting/list-property/photos/:id",
+    "title": "Property Images",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "photos",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cover_photo",
+            "description": "<p>url of an image</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object[]",
+            "optional": false,
+            "field": "images",
+            "description": "<p>urls of images</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n          \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email/08-Recognizing your email.png\",\n          \"images\": [\n              {\n                  \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email/08-Recognizing your email.png\"\n              },\n              {\n                  \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email - Social/08-Recognizing your email - Social.png\"\n              }\n          ]\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 Created\n{\n        \"message\": \"Property images added\",\n        \"data\": {\n            \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email/08-Recognizing your email.png\",\n            \"images\": [\n                {\n                    \"property_id\": 1,\n                    \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email/08-Recognizing your email.png\"\n                },\n                {\n                    \"property_id\": 1,\n                    \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/08-Recognizing your email - Social/08-Recognizing your email - Social.png\"\n                }\n            ]\n        }\n    }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\n  HTTP/1.1 400 Bad Request\n  {\n \"message\": \"validation Failed\",\n \"error\": {\n     \"images\": [\n         \"number validation failed\"\n     ]\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/list-property/preview/:id",
+    "title": "Preview Property",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "preview",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n{\n            \"data\": [\n                {\n                    \"id\": 1,\n                    \"uid\": \"f420c40d-f1ee-435b-a9e5-d9cb33c0605e\",\n                    \"property_type\": 2,\n                    \"is_beach_house\": 1,\n                    \"is_dedicated_guest_space\": 0,\n                    \"is_business_hosting\": 1,\n                    \"no_of_guests\": 2,\n                    \"no_of_bedrooms\": 1,\n                    \"no_of_bathrooms\": 2,\n                    \"country\": \"India\",\n                    \"address_optional\": \"H Block\",\n                    \"street\": \"Noida Sector 63\",\n                    \"city\": \"Noida\",\n                    \"state\": \"UP\",\n                    \"zip_code\": \"300221\",\n                    \"latitude\": 20.134,\n                    \"longitude\": 10.24,\n                    \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n                    \"is_email_confirmed\": 1,\n                    \"is_phone_confirmed\": 1,\n                    \"is_payment_information\": 1,\n                    \"is_agree_hr\": 1,\n                    \"is_trip_purpose\": 1,\n                    \"is_id_submitted\": 1,\n                    \"is_recommended_from_oh\": 0,\n                    \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                    \"type\": {\n                        \"property_type\": \"Apartment\",\n                        \"id\": 2\n                    },\n                    \"images\": [\n                        {\n                            \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                            \"property_id\": 1\n                        }\n                        .\n                        .\n                        .\n                    ],\n                    \"amenities\": [\n                        {\n                            \"amenity_id\": 2,\n                            \"property_id\": 1,\n                            \"amenity_name\": {\n                                \"name\": \"TVZ\",\n                                \"id\": 2\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"beds\": [\n                        {\n                            \"bed_id\": 1,\n                            \"serial_number\": 0,\n                            \"count\": 2,\n                            \"bedroom_name\": \"Common Space\",\n                            \"property_id\": 1,\n                            \"bed_type\": {\n                                \"bed_type\": \"double\",\n                                \"id\": 1\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"rules\": [\n                        {\n                            \"rule_id\": 4,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Smoking allowed\",\n                                \"id\": 4\n                            }\n                        },\n                        {\n                            \"rule_id\": 5,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Events allowed\",\n                                \"id\": 5\n                            }\n                        },\n                        {\n                            \"rule_id\": null,\n                            \"is_additional\": 1,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": \"test\"\n                        }\n                        .\n                        .\n                        .\n                    ]\n                }\n            ]\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "put",
     "url": "/user/hosting/list-property/pricing/:id",
     "title": "Set Price",
     "header": {
@@ -2861,7 +3162,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 201 Created\n{\n\"message\": \"Profile photo updated\",\n\"data\": [\n    {\n        \"id\": 19,\n        \"uid\": \"3f1e2577-3e27-4cae-8b96-309f42c5c620\",\n        \"first_name\": \"Pukhraj \",\n        \"last_name\": \"saini\",\n        \"dob\": \"6-5-2008\",\n        \"avatar\": \"https://s3.me-south-1.amazonaws.com/roomz-files/ user-profile-photos/1627900606600-10-Create your file.png\",\n        \"email\": \"pukhraj@mailinator.com\",\n        \"country_code\": \"+91\",\n        \"phone_number\": \"9882552978\",\n        \"username\": null,\n        \"google_id\": null,\n        \"facebook_id\": null,\n        \"apple_id\": null,\n        \"login_type\": \"EMAIL\",\n        \"device_type\": null,\n        \"is_active\": 1,\n        \"is_verified\": 1,\n        \"is_id_verified\": 0,\n        \"is_deleted\": 0,\n        \"created_at\": \"2021-06-15T15:21:07.000+05:30\",\n        \"updated_at\": \"2021-06-15T15:21:07.000+05:30\"\n    }\n  ]\n}",
+          "content": "   HTTP/1.1 201 Created\n{\n\"message\": \"Phone number updated\",\n\"data\": [\n    {\n        \"id\": 19,\n        \"uid\": \"3f1e2577-3e27-4cae-8b96-309f42c5c620\",\n        \"first_name\": \"Pukhraj \",\n        \"last_name\": \"saini\",\n        \"dob\": \"6-5-2008\",\n        \"avatar\": \"https://s3.me-south-1.amazonaws.com/roomz-files/ user-profile-photos/1627900606600-10-Create your file.png\",\n        \"email\": \"pukhraj@mailinator.com\",\n        \"country_code\": \"+91\",\n        \"phone_number\": \"9882552978\",\n        \"username\": null,\n        \"google_id\": null,\n        \"facebook_id\": null,\n        \"apple_id\": null,\n        \"login_type\": \"EMAIL\",\n        \"device_type\": null,\n        \"is_active\": 1,\n        \"is_verified\": 1,\n        \"is_id_verified\": 0,\n        \"is_deleted\": 0,\n        \"created_at\": \"2021-06-15T15:21:07.000+05:30\",\n        \"updated_at\": \"2021-06-15T15:21:07.000+05:30\"\n    }\n  ]\n}",
           "type": "json"
         }
       ]
