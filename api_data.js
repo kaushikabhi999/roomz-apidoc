@@ -1301,6 +1301,27 @@ define({ "api": [
             "optional": false,
             "field": "zip_code",
             "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "longitude",
+            "description": "<p>Ex 10.24</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "latitude",
+            "description": "<p>Ex 20.135</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "location",
+            "description": "<p>A-121, Sec-63 Noida, Utter Pradesh 201301.</p>"
           }
         ]
       },
@@ -2666,86 +2687,6 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property price added\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"longitude\": 10.24,\n           \"latitude\": 20.134,\n           \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n           \"is_email_confirmed\": 1,\n           \"is_phone_confirmed\": 1,\n           \"is_agree_hr\": 1,\n           \"is_payment_information\": 1,\n           \"is_trip_purpose\": 1,\n           \"is_id_submitted\": 1,\n           \"is_recommended_from_oh\": 1,\n           \"description\": \"This house is newly constructed and loaded with all facilites.\",\n           \"desc_your_space\": \"There is a common area 20x20 ft, and a loan wiht 100x100 ft.\",\n           \"desc_interaction_guests\": null,\n           \"desc_neighbourhood\": null,\n           \"desc_getting_around\": null,\n           \"name\": \"Smart House 3 Star\",\n           \"country_code\": \"+91\",\n           \"sec_phone_number\": \"9882554563\",\n           \"advance_notice\": 2,\n           \"cut_off_time\": \"10 AM\",\n           \"guests_book_time\": \"4 PM\",\n           \"ci_arrive_after\": \"11 AM\",\n           \"ci_arrive_before\": \"12 PM\",\n           \"ci_leave_before\": \"12 PM\",\n           \"min_stay\": 2,\n           \"max_stay\": 2,\n           \"base_price\": 20,\n           \"is_discount_20\": false\n       }\n   ]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "app/Controllers/Http/User/PropertyController.ts",
-    "groupTitle": "List_Property"
-  },
-  {
-    "type": "put",
-    "url": "/user/hosting/list-property/property-details/:id",
-    "title": "Property Details",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Device-Type",
-            "description": "<p>Device Type ios/android.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "App-Version",
-            "description": "<p>Version Code 1.0.0.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Accept-Language",
-            "description": "<p>Language Code en OR ar.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
-          }
-        ]
-      }
-    },
-    "version": "1.0.0",
-    "name": "property-details",
-    "group": "List_Property",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Number",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Property ID (pass as params)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "object[]",
-            "optional": false,
-            "field": "property_details",
-            "description": "<p>Array of details</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n \"property_details\": [\n         {\n             \"detail_id\": 1,\n             \"explanation\": \"tell something\"\n         },\n         {\n             \"detail_id\": 2\n         },\n         {\n             \"detail_id\": 3\n         }\n     ]\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 201 Created\n{\n  \"message\": \"Property details added\",\n  \"data\": [\n      {\n          \"detail_id\": 1,\n          \"property_id\": 1,\n          \"explanation\": \"tell something\"\n      },\n      {\n          \"detail_id\": 2,\n          \"property_id\": 1,\n          \"explanation\": null\n      },\n      {\n          \"detail_id\": 3,\n          \"property_id\": 1,\n          \"explanation\": null\n      }\n  ]\n}",
           "type": "json"
         }
       ]
