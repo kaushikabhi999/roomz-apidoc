@@ -1071,6 +1071,68 @@ define({ "api": [
     "groupTitle": "Hosting"
   },
   {
+    "type": "get",
+    "url": "/user/hosting/listing-status",
+    "title": "Listing Status",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "listing-status",
+    "group": "Hosting",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n  {\n \"data\": {\n         \"listing_status\": false\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
     "type": "Post",
     "url": "/user/hosting/remove-images/:id",
     "title": "Remove Images",
@@ -1870,6 +1932,72 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "    HTTP/1.1 201 Created\n    \n{\n   \"message\": \"Property updated\",\n   \"data\": [\n       {\n           \"id\": 2,\n           \"uid\": \"31195908-2d43-4905-a28e-faa17de2588b\",\n           \"property_type\": 1,\n           \"is_beach_house\": 0,\n           \"is_dedicated_guest_space\": 1,\n           \"is_business_hosting\": 1,\n           \"no_of_guests\": 2,\n           \"no_of_bedrooms\": 1,\n           \"no_of_bathrooms\": 2,\n           \"country\": \"India\",\n           \"street\": \"Noida Sector 63\",\n           \"address_optional\": \"H Block\",\n           \"state\": \"UP\",\n           \"city\": \"Noida\",\n           \"zip_code\": \"300221\",\n           \"longitude\": 10.24,\n           \"latitude\": 20.134,\n           \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n           \"is_email_confirmed\": 1,\n           \"is_phone_confirmed\": 1,\n           \"is_agree_hr\": 1,\n           \"is_payment_information\": 1,\n           \"is_trip_purpose\": 1,\n           \"is_id_submitted\": 1,\n           \"is_recommended_from_oh\": 1,\n           \"description\": \"This house is newly constructed and loaded with all facilites.\",\n           \"desc_your_space\": \"There is a common area 20x20 ft, and a loan wiht 100x100 ft.\",\n           \"desc_interaction_guests\": null,\n           \"desc_neighbourhood\": null,\n           \"desc_getting_around\": null,\n           \"name\": \"Smart House 3 Star\",\n           \"country_code\": \"+91\",\n           \"sec_phone_number\": \"9882554563\",\n           \"advance_notice\": 2,\n           \"cut_off_time\": 10,\n           \"guests_book_time\": 16,\n           \"ci_arrive_after\": 11,\n           \"ci_arrive_before\": 14,\n           \"ci_leave_before\": 16,\n           \"min_stay\": 2,\n           \"max_stay\": 2,\n           \"base_price\": 20,\n           \"is_discount_20\": false,\n           \"is_local_laws\": true,\n           \"is_updated_calender\": true,\n           \"have_guests\": 2,\n           \"rented_before\": 1,\n           \"notice_guest_ba\": 2,\n           \"guest_ci_from\": 10,\n           \"guest_ci_to\": 16,\n           \"weekly_discount\": 5,\n           \"monthly_discount\": 17,\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/PropertyController.ts",
+    "groupTitle": "List_Property"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/list-property/get-property/:id",
+    "title": "Get Property For Update",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "get-property",
+    "group": "List_Property",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n{\n                \"property\": [\n                    {\n                        \"id\": 2,\n                        \"uid\": \"490d4ac9-1add-4a16-a731-f80053842773\",\n                        \"user_id\": 19,\n                        \"property_type\": 1,\n                        \"is_beach_house\": null,\n                        \"is_dedicated_guest_space\": 1,\n                        \"is_business_hosting\": 0,\n                        \"no_of_guests\": 1,\n                        \"no_of_bedrooms\": 1,\n                        \"no_of_beds\": 6,\n                        \"no_of_bathrooms\": 1,\n                        \"country\": \"India\",\n                        \"address_optional\": \"\",\n                        \"street\": \"Kolra\",\n                        \"city\": \"Dausa\",\n                        \"state\": \"Rajasthan\",\n                        \"zip_code\": \"321608\",\n                        \"latitude\": 26.948408,\n                        \"longitude\": 76.800511,\n                        \"location\": \"Unnamed Road, Mehandipur, Rajasthan 321610, India\",\n                        \"is_email_confirmed\": 1,\n                        \"is_phone_confirmed\": 0,\n                        \"is_payment_information\": 1,\n                        \"is_agree_hr\": 1,\n                        \"is_trip_purpose\": 0,\n                        \"is_id_submitted\": 0,\n                        \"is_recommended_from_oh\": 0,\n                        \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/Screenshot from 2021-06-18 15-38-29/Screenshot from 2021-06-18 15-38-29.png\",\n                        \"description\": \"good for livig, hhhhjjjjjkkkk\",\n                        \"desc_your_space\": \"\",\n                        \"desc_interaction_guests\": \"\",\n                        \"desc_neighbourhood\": \"\",\n                        \"desc_getting_around\": \"\",\n                        \"name\": \"Smart House \",\n                        \"country_code\": \"+91\",\n                        \"sec_phone_number\": null,\n                        \"advance_notice\": 0,\n                        \"cut_off_time\": 22,\n                        \"guests_book_time\": 1,\n                        \"ci_arrive_after\": 10,\n                        \"ci_arrive_before\": 22,\n                        \"ci_leave_before\": 12,\n                        \"min_stay\": 1,\n                        \"max_stay\": 1,\n                        \"base_price\": 1,\n                        \"is_discount_20\": 1,\n                        \"is_local_laws\": 1,\n                        \"is_updated_calender\": 1,\n                        \"rented_before\": 1,\n                        \"have_guests\": 2,\n                        \"notice_guest_ba\": 0,\n                        \"guest_ci_from\": 10,\n                        \"guest_ci_to\": 22,\n                        \"weekly_discount\": 2,\n                        \"monthly_discount\": 2,\n                        \"status\": 2,\n                        \"created_at\": \"2021-08-13T11:00:44.000+05:30\",\n                        \"updated_at\": \"2021-08-13T10:57:35.000+05:30\",\n                        \"type\": {\n                            \"property_type\": \"Villa\",\n                            \"id\": 1\n                        },\n                        \"beds\": [\n                            {\n                                \"bed_id\": 4,\n                                \"serial_number\": 0,\n                                \"count\": 2,\n                                \"bedroom_name\": \"Common Space\",\n                                \"property_id\": 2\n                            },\n                            {\n                                \"bed_id\": 7,\n                                \"serial_number\": 0,\n                                \"count\": 3,\n                                \"bedroom_name\": \"Common Space\",\n                                \"property_id\": 2\n                            },\n                            {\n                                \"bed_id\": 9,\n                                \"serial_number\": 0,\n                                \"count\": 1,\n                                \"bedroom_name\": \"Common Space\",\n                                \"property_id\": 2\n                            },\n                            {\n                                \"bed_id\": 1,\n                                \"serial_number\": 1,\n                                \"count\": 2,\n                                \"bedroom_name\": \"Bedroom 1\",\n                                \"property_id\": 2\n                            },\n                            {\n                                \"bed_id\": 2,\n                                \"serial_number\": 1,\n                                \"count\": 3,\n                                \"bedroom_name\": \"Bedroom 2\",\n                                \"property_id\": 2\n                            },\n                            {\n                                \"bed_id\": 3,\n                                \"serial_number\": 1,\n                                \"count\": 1,\n                                \"bedroom_name\": \"Bedroom 3\",\n                                \"property_id\": 2\n                            }\n                        ],\n                        \"amenities\": [\n                            {\n                                \"amenity_id\": 1,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"amenity_id\": 2,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"amenity_id\": 3,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"amenity_id\": 4,\n                                \"property_id\": 2\n                            }\n                        ],\n                        \"details\": [\n                            {\n                                \"detail_id\": 8,\n                                \"explanation\": null,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"detail_id\": 9,\n                                \"explanation\": null,\n                                \"property_id\": 2\n                            }\n                        ],\n                        \"rules\": [\n                            {\n                                \"rule_id\": 1,\n                                \"is_additional\": 0,\n                                \"is_cancelled\": 0,\n                                \"cancel_reason\": null,\n                                \"description\": null,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"rule_id\": 2,\n                                \"is_additional\": 0,\n                                \"is_cancelled\": 0,\n                                \"cancel_reason\": null,\n                                \"description\": null,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"rule_id\": 3,\n                                \"is_additional\": 0,\n                                \"is_cancelled\": 0,\n                                \"cancel_reason\": null,\n                                \"description\": null,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"rule_id\": 4,\n                                \"is_additional\": 0,\n                                \"is_cancelled\": 0,\n                                \"cancel_reason\": null,\n                                \"description\": null,\n                                \"property_id\": 2\n                            },\n                            {\n                                \"rule_id\": 5,\n                                \"is_additional\": 0,\n                                \"is_cancelled\": 0,\n                                \"cancel_reason\": null,\n                                \"description\": null,\n                                \"property_id\": 2\n                            }\n                        ],\n                        \"images\": [\n                            {\n                                \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/Screenshot from 2021-06-21 13-40-14/Screenshot from 2021-06-21 13-40-14.png\",\n                                \"property_id\": 2\n                            }\n                                ]\n                            }\n                        ]\n       }",
           "type": "json"
         }
       ]
@@ -2696,7 +2824,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/user/hosting/list-property/type",
+    "url": "/user/hosting/list-property/type/id?",
     "title": "Property Type",
     "header": {
       "fields": {
@@ -2738,6 +2866,13 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "id",
+            "description": "<p>on updating a property pass property id as params, if adding a new property no need to pass id</p>"
+          },
           {
             "group": "Parameter",
             "type": "Number",
