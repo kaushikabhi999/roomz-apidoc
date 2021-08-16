@@ -3239,13 +3239,6 @@ define({ "api": [
             "optional": false,
             "field": "Accept-Language",
             "description": "<p>Language Code en OR ar.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
           }
         ]
       }
