@@ -199,6 +199,51 @@
     "groupTitle": "Admin"
   },
   {
+    "type": "get",
+    "url": "/admin/property-details/:id",
+    "title": "Property Details",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "property-details",
+    "group": "Admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n{\n            \"data\": [\n                {\n                    \"id\": 1,\n                    \"uid\": \"f420c40d-f1ee-435b-a9e5-d9cb33c0605e\",\n                    \"property_type\": 2,\n                    \"is_beach_house\": 1,\n                    \"is_dedicated_guest_space\": 0,\n                    \"is_business_hosting\": 1,\n                    \"no_of_guests\": 2,\n                    \"no_of_bedrooms\": 1,\n                    \"no_of_bathrooms\": 2,\n                    \"country\": \"India\",\n                    \"address_optional\": \"H Block\",\n                    \"street\": \"Noida Sector 63\",\n                    \"city\": \"Noida\",\n                    \"state\": \"UP\",\n                    \"zip_code\": \"300221\",\n                    \"latitude\": 20.134,\n                    \"longitude\": 10.24,\n                    \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n                    \"is_email_confirmed\": 1,\n                    \"is_phone_confirmed\": 1,\n                    \"is_payment_information\": 1,\n                    \"is_agree_hr\": 1,\n                    \"is_trip_purpose\": 1,\n                    \"is_id_submitted\": 1,\n                    \"is_recommended_from_oh\": 0,\n                    \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                    \"type\": {\n                        \"property_type\": \"Apartment\",\n                        \"id\": 2\n                    },\n                    \"images\": [\n                        {\n                            \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                            \"property_id\": 1\n                        }\n                        .\n                        .\n                        .\n                    ],\n                    \"amenities\": [\n                        {\n                            \"amenity_id\": 2,\n                            \"property_id\": 1,\n                            \"amenity_name\": {\n                                \"name\": \"TVZ\",\n                                \"id\": 2\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"beds\": [\n                        {\n                            \"bed_id\": 1,\n                            \"serial_number\": 0,\n                            \"count\": 2,\n                            \"bedroom_name\": \"Common Space\",\n                            \"property_id\": 1,\n                            \"bed_type\": {\n                                \"bed_type\": \"double\",\n                                \"id\": 1\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"rules\": [\n                        {\n                            \"rule_id\": 4,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Smoking allowed\",\n                                \"id\": 4\n                            }\n                        },\n                        {\n                            \"rule_id\": 5,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Events allowed\",\n                                \"id\": 5\n                            }\n                        },\n                        {\n                            \"rule_id\": null,\n                            \"is_additional\": 1,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": \"test\"\n                        }\n                        .\n                        .\n                        .\n                    ]\n                }\n            ]\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/Admin/PropertiesController.ts",
+    "groupTitle": "Admin"
+  },
+  {
     "type": "post",
     "url": "/auth/check-account",
     "title": "Check Account",
@@ -1116,6 +1161,69 @@
         {
           "title": "Success-Response:",
           "content": "  HTTP/1.1 200 OK\n  {\n \"data\": {\n         \"listing_status\": false\n     }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "get",
+    "url": "/user/hosting/my-properties?search=''&beds=4&bedrooms&amenities=1,2,3,4&status=1,2,3&page=1&pageSize=10",
+    "title": "My Properties",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "my-properties",
+    "group": "Hosting",
+    "description": "<p>This is the Description. It is multiline capable.</p> <p>Last line of Description.</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n      \"meta\": {\n          \"total\": 1,\n          \"per_page\": 100,\n          \"current_page\": 1,\n          \"last_page\": 1,\n          \"first_page\": 1,\n          \"first_page_url\": \"/?page=1\",\n          \"last_page_url\": \"/?page=1\",\n          \"next_page_url\": null,\n          \"previous_page_url\": null\n      },\n      \"data\": [\n          {\n              \"id\": 6,\n              \"uid\": \"93b18dfe-0449-4868-9e9e-556957414123\",\n              \"no_of_bedrooms\": 1,\n              \"no_of_beds\": 6,\n              \"no_of_bathrooms\": 1,\n              \"city\": \"Dausa\",\n              \"location\": \"3W2G+X5M, Mahwa, Rajasthan 321608, India\",\n              \"updated_at\": \"2021-08-13T15:12:12.000+05:30\",\n              \"status\": 1,\n              \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/Screenshot from 2021-06-18 15-38-29/Screenshot from 2021-06-18 15-38-29.png\"\n          }\n          .\n          .\n          .\n\n            ]\n        }\n    }",
           "type": "json"
         }
       ]
@@ -3103,6 +3211,127 @@
     },
     "filename": "app/Controllers/Http/User/PropertyController.ts",
     "groupTitle": "List_Property"
+  },
+  {
+    "type": "get",
+    "url": "/admin/property-details/:id",
+    "title": "Property Details",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "property-details",
+    "group": "Travelling",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n{\n          \"data\": [\n              {\n                  \"id\": 1,\n                  \"uid\": \"f420c40d-f1ee-435b-a9e5-d9cb33c0605e\",\n                  \"property_type\": 2,\n                  \"is_beach_house\": 1,\n                  \"is_dedicated_guest_space\": 0,\n                  \"is_business_hosting\": 1,\n                  \"no_of_guests\": 2,\n                  \"no_of_bedrooms\": 1,\n                  \"no_of_bathrooms\": 2,\n                  \"country\": \"India\",\n                  \"address_optional\": \"H Block\",\n                  \"street\": \"Noida Sector 63\",\n                  \"city\": \"Noida\",\n                  \"state\": \"UP\",\n                  \"zip_code\": \"300221\",\n                  \"latitude\": 20.134,\n                  \"longitude\": 10.24,\n                  \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n                  \"is_email_confirmed\": 1,\n                  \"is_phone_confirmed\": 1,\n                  \"is_payment_information\": 1,\n                  \"is_agree_hr\": 1,\n                  \"is_trip_purpose\": 1,\n                  \"is_id_submitted\": 1,\n                  \"is_recommended_from_oh\": 0,\n                  \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                  \"type\": {\n                      \"property_type\": \"Apartment\",\n                      \"id\": 2\n                  },\n                  \"images\": [\n                      {\n                          \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                          \"property_id\": 1\n                      }\n                      .\n                      .\n                      .\n                  ],\n                  \"amenities\": [\n                      {\n                          \"amenity_id\": 2,\n                          \"property_id\": 1,\n                          \"amenity_name\": {\n                              \"name\": \"TVZ\",\n                              \"id\": 2\n                          }\n                      },\n                      .\n                      .\n                      .\n                  ],\n                  \"beds\": [\n                      {\n                          \"bed_id\": 1,\n                          \"serial_number\": 0,\n                          \"count\": 2,\n                          \"bedroom_name\": \"Common Space\",\n                          \"property_id\": 1,\n                          \"bed_type\": {\n                              \"bed_type\": \"double\",\n                              \"id\": 1\n                          }\n                      },\n                      .\n                      .\n                      .\n                  ],\n                  \"rules\": [\n                      {\n                          \"rule_id\": 4,\n                          \"is_additional\": 0,\n                          \"is_cancelled\": 0,\n                          \"cancel_reason\": null,\n                          \"description\": null,\n                          \"rule\": {\n                              \"rule\": \"Smoking allowed\",\n                              \"id\": 4\n                          }\n                      },\n                      {\n                          \"rule_id\": 5,\n                          \"is_additional\": 0,\n                          \"is_cancelled\": 0,\n                          \"cancel_reason\": null,\n                          \"description\": null,\n                          \"rule\": {\n                              \"rule\": \"Events allowed\",\n                              \"id\": 5\n                          }\n                      },\n                      {\n                          \"rule_id\": null,\n                          \"is_additional\": 1,\n                          \"is_cancelled\": 0,\n                          \"cancel_reason\": null,\n                          \"description\": \"test\"\n                      }\n                      .\n                      .\n                      .\n                  ]\n              }\n          ]\n      }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/TravellingController.ts",
+    "groupTitle": "Travelling"
+  },
+  {
+    "type": "get",
+    "url": "/user/travelling/search-property?search=''",
+    "title": "Search Property",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Device Type ios/android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version Code 1.0.0.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Accept-Language",
+            "description": "<p>Language Code en OR ar.</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "search-property",
+    "group": "Travelling",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 OK\n        {\n    \"properties\": {\n        \"meta\": {\n            \"total\": 2,\n            \"per_page\": 10,\n            \"current_page\": 1,\n            \"last_page\": 1,\n            \"first_page\": 1,\n            \"first_page_url\": \"/?page=1\",\n            \"last_page_url\": \"/?page=1\",\n            \"next_page_url\": null,\n            \"previous_page_url\": null\n        },\n        \"data\": [\n            {\n                \"id\": 9,\n                \"uid\": \"81db4b21-b147-4b1c-b2e1-e74f79371afe\",\n                \"user_id\": 19,\n                \"property_type\": 1,\n               \n            },\n            {\n                \"id\": 8,\n                \"uid\": \"27e4522e-abd4-4c37-8155-3aab5bfd2ea4\",\n                \"user_id\": 19,\n                \"property_type\": 1,\n                \"is_beach_house\": 1,\n                \n            }\n            .\n            .\n            .\n            .\n        ]\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/TravellingController.ts",
+    "groupTitle": "Travelling"
   },
   {
     "type": "get",
