@@ -200,6 +200,96 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/admin/block-property/:uid",
+    "title": "Block Unblock Property",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "block-property",
+    "group": "Admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 Success",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/Admin/PropertiesController.ts",
+    "groupTitle": "Admin"
+  },
+  {
+    "type": "delete",
+    "url": "/admin/delete-property/:uid",
+    "title": "Delete Property",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "delete-property",
+    "group": "Admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n\n{\n \"message\": \"Property deleted successfully\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/Admin/PropertiesController.ts",
+    "groupTitle": "Admin"
+  },
+  {
+    "type": "get",
     "url": "/admin/property-details/:id",
     "title": "Property Details",
     "header": {
@@ -236,6 +326,51 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "    HTTP/1.1 200 Success\n{\n            \"data\": [\n                {\n                    \"id\": 1,\n                    \"uid\": \"f420c40d-f1ee-435b-a9e5-d9cb33c0605e\",\n                    \"property_type\": 2,\n                    \"is_beach_house\": 1,\n                    \"is_dedicated_guest_space\": 0,\n                    \"is_business_hosting\": 1,\n                    \"no_of_guests\": 2,\n                    \"no_of_bedrooms\": 1,\n                    \"no_of_bathrooms\": 2,\n                    \"country\": \"India\",\n                    \"address_optional\": \"H Block\",\n                    \"street\": \"Noida Sector 63\",\n                    \"city\": \"Noida\",\n                    \"state\": \"UP\",\n                    \"zip_code\": \"300221\",\n                    \"latitude\": 20.134,\n                    \"longitude\": 10.24,\n                    \"location\": \"A-121, Sec-63 Noida, Utter Pradesh 201301\",\n                    \"is_email_confirmed\": 1,\n                    \"is_phone_confirmed\": 1,\n                    \"is_payment_information\": 1,\n                    \"is_agree_hr\": 1,\n                    \"is_trip_purpose\": 1,\n                    \"is_id_submitted\": 1,\n                    \"is_recommended_from_oh\": 0,\n                    \"cover_photo\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                    \"type\": {\n                        \"property_type\": \"Apartment\",\n                        \"id\": 2\n                    },\n                    \"images\": [\n                        {\n                            \"image_url\": \"https://s3.me-south-1.amazonaws.com/roomz-files/property-files/06-OTP_verification/06-OTP_verification.png\",\n                            \"property_id\": 1\n                        }\n                        .\n                        .\n                        .\n                    ],\n                    \"amenities\": [\n                        {\n                            \"amenity_id\": 2,\n                            \"property_id\": 1,\n                            \"amenity_name\": {\n                                \"name\": \"TVZ\",\n                                \"id\": 2\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"beds\": [\n                        {\n                            \"bed_id\": 1,\n                            \"serial_number\": 0,\n                            \"count\": 2,\n                            \"bedroom_name\": \"Common Space\",\n                            \"property_id\": 1,\n                            \"bed_type\": {\n                                \"bed_type\": \"double\",\n                                \"id\": 1\n                            }\n                        },\n                        .\n                        .\n                        .\n                    ],\n                    \"rules\": [\n                        {\n                            \"rule_id\": 4,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Smoking allowed\",\n                                \"id\": 4\n                            }\n                        },\n                        {\n                            \"rule_id\": 5,\n                            \"is_additional\": 0,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": null,\n                            \"rule\": {\n                                \"rule\": \"Events allowed\",\n                                \"id\": 5\n                            }\n                        },\n                        {\n                            \"rule_id\": null,\n                            \"is_additional\": 1,\n                            \"is_cancelled\": 0,\n                            \"cancel_reason\": null,\n                            \"description\": \"test\"\n                        }\n                        .\n                        .\n                        .\n                    ]\n                }\n            ]\n        }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/Admin/PropertiesController.ts",
+    "groupTitle": "Admin"
+  },
+  {
+    "type": "get",
+    "url": "/admin/property-list?name=''&",
+    "title": "Property List",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "property-list",
+    "group": "Admin",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 Success",
           "type": "json"
         }
       ]
@@ -984,6 +1119,51 @@ define({ "api": [
         {
           "title": "Error-Response:",
           "content": "\nHTTP/1.1 500 Internal Serve Error\n{\n   \"message\": \"Something went wrong\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "app/Controllers/Http/User/HostingController.ts",
+    "groupTitle": "Hosting"
+  },
+  {
+    "type": "delete",
+    "url": "/user/hosting/delete-property/?ids=1,2,3",
+    "title": "Delete Property",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Bearer eyJhbGciOiJIUzI1NiI...............</p>"
+          }
+        ]
+      }
+    },
+    "version": "1.0.0",
+    "name": "delete-property",
+    "group": "Hosting",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Property ID (pass as params)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "    HTTP/1.1 200 Success\n\n{\n \"message\": \"Property deleted successfully\"\n }",
           "type": "json"
         }
       ]
@@ -3034,7 +3214,7 @@ define({ "api": [
     "groupTitle": "List_Property"
   },
   {
-    "type": "get",
+    "type": "put",
     "url": "/user/hosting/list-property/publish/:id",
     "title": "Publish Property",
     "header": {
