@@ -1128,7 +1128,7 @@ define({ "api": [
   },
   {
     "type": "delete",
-    "url": "/user/hosting/delete-property/?ids=1,2,3",
+    "url": "/user/hosting/delete-properties/?ids=1,2,3",
     "title": "Delete Property",
     "header": {
       "fields": {
@@ -1144,7 +1144,7 @@ define({ "api": [
       }
     },
     "version": "1.0.0",
-    "name": "delete-property",
+    "name": "delete-properties",
     "group": "Hosting",
     "parameter": {
       "fields": {
